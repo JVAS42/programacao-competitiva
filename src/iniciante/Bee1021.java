@@ -14,15 +14,15 @@ public class Bee1021 {
         System.out.println("NOTAS:");
         for (int i = 0; i < notas.length; i++) {
             quantidade = (int) (valor/notas[i]);
-            valor = valor%notas[i];
             System.out.println(String.format("%d nota(s) de R$ %.2f", quantidade, notas[i]));
+            valor = valor%notas[i];
         }
 
         System.out.println("MOEDAS:");
         for (int i = 0; i < moedas.length; i++) {
             quantidade = (int) (valor/moedas[i]);
-            valor = valor%moedas[i];
             System.out.println(String.format("%d moeda(s) de R$ %.2f", quantidade, moedas[i]));
+            valor = valor%moedas[i];
         }
     }
 }
