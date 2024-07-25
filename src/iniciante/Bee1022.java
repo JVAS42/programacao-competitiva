@@ -16,12 +16,13 @@ public class Bee1022 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n1, n2, d1, d2;
-        int numerador, denominador;
+        int numerador, denominador, numeradorSimplificado, denominadorSimplificado, divisorComum;
         String operacaoMatematica;
 
         int n = input.nextInt();
         input.nextLine();
         System.out.println();
+
         for (int i = 0; i < n; i++) {
             String[] operacao = input.nextLine().split(" ");
             n1 = Integer.parseInt(operacao[0]);
@@ -34,62 +35,33 @@ public class Bee1022 {
 
             switch (operacaoMatematica) {
                 case "+":
-                    numerador = (n1*d2)+(n2*d1);
-                    denominador = d1*d2;
-                    if (numerador%2 == 0 && denominador%2 == 0) {
-                        int numeradoSimplificado = numerador;
-                        int denominadorSimplificado = denominador;
-                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
-                        numeradoSimplificado /= divisorComum;
-                        denominadorSimplificado /= divisorComum;
-                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
-                    } else {
-                        System.out.println(numerador+"/"+denominador);
-                    }
+                    numerador = (n1 * d2) + (n2 * d1);
+                    denominador = d1 * d2;
                     break;
                 case "-":
-                    numerador = ((n1*d2)-(n2*d1));
-                    denominador = d1*d2;
-                    if (numerador%2 == 0 && denominador%2 == 0) {
-                        int numeradoSimplificado = numerador;
-                        int denominadorSimplificado = denominador;
-                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
-                        numeradoSimplificado /= divisorComum;
-                        denominadorSimplificado /= divisorComum;
-                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
-                    } else {
-                        System.out.println(numerador+"/"+denominador);
-                    }
+                    numerador = (n1 * d2) - (n2 * d1);
+                    denominador = d1 * d2;
                     break;
                 case "*":
-                    numerador = n1*n2;
-                    denominador = d1*d2;
-                    if (numerador%2 == 0 && denominador%2 == 0) {
-                        int numeradoSimplificado = numerador;
-                        int denominadorSimplificado = denominador;
-                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
-                        numeradoSimplificado /= divisorComum;
-                        denominadorSimplificado /= divisorComum;
-                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
-                    } else {
-                        System.out.println(numerador+"/"+denominador);
-                    }
+                    numerador = n1 * n2;
+                    denominador = d1 * d2;
                     break;
                 case "/":
-                    numerador = n1*d2;
-                    denominador = n2*d1;
-                    if (numerador%2 == 0 && denominador%2 == 0) {
-                        int numeradoSimplificado = numerador;
-                        int denominadorSimplificado = denominador;
-                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
-                        numeradoSimplificado /= divisorComum;
-                        denominadorSimplificado /= divisorComum;
-                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
-                    } else {
-                        System.out.println(numerador+"/"+denominador);
-                    }
+                    numerador = n1 * d2;
+                    denominador = n2 * d1;
                     break;
+                default:
+                    throw new IllegalArgumentException("Operação matemática inválida: " + operacaoMatematica);
             }
+
+            numeradorSimplificado = numerador;
+            denominadorSimplificado = denominador;
+            divisorComum = mdc(numeradorSimplificado, denominadorSimplificado);
+            numeradorSimplificado /= divisorComum;
+            denominadorSimplificado /= divisorComum;
+            System.out.println(numerador + "/" + denominador + " = " + numeradorSimplificado + "/" + denominadorSimplificado);
         }
+
+        input.close();
     }
 }
