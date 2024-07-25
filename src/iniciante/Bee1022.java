@@ -4,43 +4,24 @@ import java.util.Scanner;
 
 public class Bee1022 {
 
-    /*
-    Soma: (N1*D2 + N2*D1) / (D1*D2)
-    Subtração: (N1*D2 - N2*D1) / (D1*D2)
-    Multiplicação: (N1*N2) / (D1*D2)
-    Divisão: (N1/D1) / (N2/D2), ou seja (N1*D2)/(N2*D1)
-     */
-
-    public static String soma (int n1, int n2, int d1, int d2) {
-        int numerador = (n1*d2)+(n2*d1);
-        int denominador = d1*d2;
-
-        if (numerador%2 == 0 & denominador%2 == 0) {
+    public static int mdc(int a, int b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
+        if (b == 0) {
+            return a;
         }
-
-        return numerador + "/" + denominador;
-    }
-
-    public static int subtracao (int numero) {
-        return 0;
-    }
-
-    public static int multiplicacao (int numero) {
-        return 0;
-    }
-
-    public static int divisao (int numero) {
-        return 0;
+        return mdc(b, a % b);
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n1, n2, d1, d2;
+        int numerador, denominador;
         String operacaoMatematica;
 
         int n = input.nextInt();
         input.nextLine();
-
+        System.out.println();
         for (int i = 0; i < n; i++) {
             String[] operacao = input.nextLine().split(" ");
             n1 = Integer.parseInt(operacao[0]);
@@ -53,16 +34,60 @@ public class Bee1022 {
 
             switch (operacaoMatematica) {
                 case "+":
-                    System.out.println(String.format("%d/%d", (n1*d2+n2*d1), (d1*d2)));
+                    numerador = (n1*d2)+(n2*d1);
+                    denominador = d1*d2;
+                    if (numerador%2 == 0 && denominador%2 == 0) {
+                        int numeradoSimplificado = numerador;
+                        int denominadorSimplificado = denominador;
+                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
+                        numeradoSimplificado /= divisorComum;
+                        denominadorSimplificado /= divisorComum;
+                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
+                    } else {
+                        System.out.println(numerador+"/"+denominador);
+                    }
                     break;
                 case "-":
-                    System.out.println(String.format("%d/%d", (n1*d2-n2*d1), (d1*d2)));
+                    numerador = ((n1*d2)-(n2*d1));
+                    denominador = d1*d2;
+                    if (numerador%2 == 0 && denominador%2 == 0) {
+                        int numeradoSimplificado = numerador;
+                        int denominadorSimplificado = denominador;
+                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
+                        numeradoSimplificado /= divisorComum;
+                        denominadorSimplificado /= divisorComum;
+                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
+                    } else {
+                        System.out.println(numerador+"/"+denominador);
+                    }
                     break;
                 case "*":
-                    System.out.println(String.format("%d/%d", (n1*n2), (d1*d2)));
+                    numerador = n1*n2;
+                    denominador = d1*d2;
+                    if (numerador%2 == 0 && denominador%2 == 0) {
+                        int numeradoSimplificado = numerador;
+                        int denominadorSimplificado = denominador;
+                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
+                        numeradoSimplificado /= divisorComum;
+                        denominadorSimplificado /= divisorComum;
+                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
+                    } else {
+                        System.out.println(numerador+"/"+denominador);
+                    }
                     break;
                 case "/":
-                    System.out.println(String.format("%d/%d", (n1*d2), (n2*d1)));
+                    numerador = n1*d2;
+                    denominador = n2*d1;
+                    if (numerador%2 == 0 && denominador%2 == 0) {
+                        int numeradoSimplificado = numerador;
+                        int denominadorSimplificado = denominador;
+                        int divisorComum = mdc(numeradoSimplificado, denominadorSimplificado);
+                        numeradoSimplificado /= divisorComum;
+                        denominadorSimplificado /= divisorComum;
+                        System.out.println(numerador+"/"+denominador+ " = "+numeradoSimplificado+"/"+denominadorSimplificado);
+                    } else {
+                        System.out.println(numerador+"/"+denominador);
+                    }
                     break;
             }
         }
