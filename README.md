@@ -17,5 +17,3 @@ Para armazenar exercícios do beecrowd feito em Python, permitindo o acompanhame
 ### Material:
 
 Exercícios: [Beecrowd](https://judge.beecrowd.com/pt)
-
-![prog-comp](https://github.com/JVAS42/programacao-competitiva/assets/61116930/20e41273-f8cb-44bf-8e93-0f2dd6bdb45a)
