@@ -1,7 +1,7 @@
-sum = lambda x, y : x + y
+def extremely_basic(a, b):
+    x = a + b
+    return x
 
-
-x = int(input())
-y = int(input())
-
-print('X =', sum(x, y))
+a = int(input())
+b = int(input())
+print(f'X = {extremely_basic(a, b)}')
