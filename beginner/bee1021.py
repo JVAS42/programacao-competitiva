@@ -13,17 +13,17 @@ def banknotes_and_coins(value):
         print(f'{value // 2:.0f} nota(s) de R$ 2.00')
         value = value % 2
         print('MOEDAS:')
-        print(f'{value // 1:.0f} moedas(s) de R$ 1.00')
+        print(f'{value // 1:.0f} moeda(s) de R$ 1.00')
         value = value % 1
-        print(f'{value // 0.5:.0f} moedas(s) de R$ 0.50')
+        print(f'{value // 0.5:.0f} moeda(s) de R$ 0.50')
         value = value % 0.50
-        print(f'{value // 0.25:.0f} moedas(s) de R$ 0.25')
+        print(f'{value // 0.25:.0f} moeda(s) de R$ 0.25')
         value = value % 0.25
-        print(f'{value // 0.1:.0f} moedas(s) de R$ 0.10')
+        print(f'{value // 0.1:.0f} moeda(s) de R$ 0.10')
         value = value % 0.1
-        print(f'{value // 0.05:.0f} moedas(s) de R$ 0.05')
+        print(f'{value // 0.05:.0f} moeda(s) de R$ 0.05')
         value = value % 0.05
-        print(f'{value // 0.01:.0f} moedas(s) de R$ 0.01')
+        print(f'{value / 0.01:.0f} moeda(s) de R$ 0.01')
 
 value = float(input())
 banknotes_and_coins(value)
