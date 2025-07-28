@@ -7,9 +7,9 @@ def coordinate(cord):
         print('Q3')
     elif cord[0] > 0 and cord[1] < 0:
         print('Q4')
-    elif cord[0] == 0 and cord[1] != 0:
+    elif cord[0] == 0:
         print('Eixo X')
-    elif cord[1] == 0 and cord[0] !=0:
+    elif cord[1] == 0:
         print('Eixo Y')
     else:
         print('Origem')
