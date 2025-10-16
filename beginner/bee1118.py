@@ -12,7 +12,8 @@ def average():
 
 def menu():
     while True:
-        opcion = int(input('novo calculo (1-sim 2-nao)'))
+        print('novo calculo (1-sim 2-nao)')
+        opcion = int(input())
 
         if opcion == 1:
             average()
