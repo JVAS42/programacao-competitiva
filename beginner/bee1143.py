@@ -1,0 +1,9 @@
+try:
+    n = int(input())
+
+    for i in range(1, n+1):
+        for j in range(1, 4):
+            print(i ** j, end=' ')
+        print()
+except:
+    print('Aconteceu um erro')
