@@ -1,10 +1,7 @@
-class Carro:
-    estado = 'novo'
+l1 = [1, 2, 3, 4, 5, 6]
 
-fusca = Carro()
-ferrari = Carro()
+print(hasattr(l1, '__iter__'))
+print(hasattr(l1, '__next__'))
 
-fusca.estado = 'usado'
-
-print(fusca.estado)
-print(ferrari.estado)
+for i in l1:
+    print(i)
